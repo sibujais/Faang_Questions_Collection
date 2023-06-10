@@ -1,0 +1,56 @@
+https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1?page=3&company[]=Microsoft&sortBy=submissions
+
+int findCelebrity(vector<vector<int>>& M) {
+    int N = M.size();
+    int left = 0;
+    int right = N - 1;
+
+    // Find the potential celebrity
+    while (left < right) {
+        if (M[left][right] == 1) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    // Check if the potential celebrity is known by everyone and does not know anyone
+    for (int i = 0; i < N; i++) {
+        if (i != left && (M[left][i] == 1 || M[i][left] == 0)) {
+            return -1;  // No celebrity found
+        }
+    }
+
+    return left;  // Found the celebrity
+}
+
+//O(n)
+
+int findCelebrity(vector<vector<int>>& M) {
+    int N = M.size();
+    int left = 0;
+    int right = N - 1;
+
+    // Find the potential celebrity
+    while (left < right) {
+        if (M[left][right] == 1) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    // Check if the potential celebrity is known by everyone and does not know anyone
+    for (int i = 0; i < N; i++) {
+        if (i != left && (M[left][i] == 1 || M[i][left] == 0)) {
+            return -1;  // No celebrity found
+        }
+    }
+
+    return left;  // Found the celebrity
+}
+//Brute force
+
+//Tags
+
+Zoho Flipkart Amazon Microsoft Google Fab.com One97 United Health Group
