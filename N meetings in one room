@@ -1,0 +1,29 @@
+https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1?page=2&company[]=Flipkart&sortBy=submissions
+
+ int maxMeetings(int start[], int end[], int n)
+    {
+        // Your code here
+        vector<pair<int,int>>timing;
+        for(int i=0;i<n;i++){
+            timing.push_back({end[i],start[i]});
+        }
+        
+        //sorting according to endtime
+        sort(timing.begin(),timing.end());
+        
+        int count=1;
+        int starting=timing[0].first;
+        
+        for(int i=1;i<n;i++){
+            int ending=timing[i].second;
+            if(ending>starting){
+                count++;
+                starting=timing[i].first;
+            }
+        }
+    
+        return count;
+    }
+    
+    Company Tags
+FlipkartAmazonMicrosoftMakeMyTrip
