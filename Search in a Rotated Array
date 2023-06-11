@@ -1,0 +1,42 @@
+https://practice.geeksforgeeks.org/problems/search-in-a-rotated-array4618/1?page=2&company[]=Flipkart&sortBy=submissions
+
+// very important
+class Solution
+{
+    int search(int nums[], int low, int high, int target)
+    {
+        // low: The starting index
+        // high: The ending index, you have to search the key in this range
+        // Complete this function
+         low=0;
+         high = nums.length -1;
+
+        while(low<=high)
+        {
+            int mid = (high +low)/2;
+
+            if(nums[mid] == target)
+            return mid;
+
+            if(nums[low] <= nums[mid])
+            {
+                if(target >= nums[low] && target < nums[mid])
+                high = mid-1;
+                else
+                low = mid+1;
+            }
+            else if(nums[high] >= nums[mid])
+            {
+                if(target > nums[mid] && target<= nums[high])
+                low = mid+1;
+                else
+                high = high-1;
+            }
+        }
+
+        return -1;
+    }
+}
+
+Company Tags
+PaytmFlipkartAmazonMicrosoftSnapdealD-E-ShawFactSetHikeMakeMyTripIntuitAdobeGoogleBankBazaarTimes Internet
