@@ -1,0 +1,22 @@
+https://practice.geeksforgeeks.org/problems/count-ways-to-reach-the-nth-stair-1587115620/1?page=2&company[]=Flipkart&sortBy=submissions
+
+ int fib(int n,vector<int>&dp){
+        if(dp[n]!=-1) return dp[n];
+        if(n==2) return 2;
+        if(n==1) return 1;
+        
+        
+        dp[n]=(fib(n-1,dp)+fib(n-2,dp))% (1000000007);
+        return dp[n];
+    }
+    
+    int countWays(int n)
+    {
+        // your code here
+        vector<int>dp(n+1,-1);
+        return fib(n,dp);
+    }
+    
+    
+    Company Tags
+FlipkartAmazonMicrosoftOYO RoomsAdobe
