@@ -1,0 +1,28 @@
+https://practice.geeksforgeeks.org/problems/square-root/1?page=3&company[]=Flipkart&sortBy=submissions
+
+long long int floorSqrt(long long int x) 
+    {
+        // Your code goes here   
+        long long int ans;
+        
+        long long int low=1;
+        long long int high=x;
+        
+        while(low<=high){
+            long long int mid=low+(high-low)/2;
+            long long int product=mid*mid;
+            if(product==x) {
+                ans=mid;
+                break;
+            }else if(product>x){
+                high=mid-1;
+                
+            }else{
+                ans=mid;
+                low=mid+1;
+            }
+            
+        }
+        return ans;
+
+VMWareFlipkartAccoliteAmazonMicrosoft
