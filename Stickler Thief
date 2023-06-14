@@ -1,0 +1,16 @@
+https://practice.geeksforgeeks.org/problems/stickler-theif-1587115621/1?page=3&company[]=Flipkart&sortBy=submissions
+
+int loot(int idx,int a[],int n,vector<int>&dp){
+        if(idx>=n) return 0;
+        if(dp[idx]!=-1) return dp[idx];
+        dp[idx]=max(a[idx]+loot(idx+2,a,n,dp),loot(idx+1,a,n,dp));
+        return dp[idx];
+    }
+    
+    int FindMaxSum(int a[], int n)
+    {
+        vector<int>dp(n,-1);
+        return loot(0,a,n,dp);
+    }
+
+PaytmFlipkartAmazonOYO RoomsWalmartGoogle
